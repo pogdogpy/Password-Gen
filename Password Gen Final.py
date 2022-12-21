@@ -1,22 +1,15 @@
-#Created By pogdog#2220 <3
-
-import random
 import string
-import time
-print("Welcome To Pogdogs' Password Generator, Please Enter Your Desired Characters Below")
-time.sleep(1)
+import random
 
-input_string = input('Enter characters separated by space ')
-print("\n")
-user_list = input_string.split()
-
-
-
-random.shuffle(user_list)
-print(*user_list, sep = "")
-
-print("Your Password Has Been Generated, Thanks For Using My Tool")
-time.sleep(10)
-exit()
-
-
+class random_pass:
+    def __init__(self, length) -> None:
+        self.length = length
+        print(f'Your password is {self.main()}')
+        
+    def main(self) -> str:
+        self.password = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(self.length))
+        return self.password
+    
+if __name__ == '__main__':
+    length = int(input('Enter the length of the password: '))
+    random_pass(length)
